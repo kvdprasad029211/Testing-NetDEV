@@ -1,0 +1,22 @@
+import unittest
+
+var = input("Enter some string: ")
+
+class TestStringMethods(unittest.TestCase):
+
+    def test_upper(self):
+        self.assertEqual(var.upper(), 'FOO')
+
+    def test_isupper(self):
+        self.assertTrue(var.isupper())
+        self.assertFalse(var.isupper())
+
+    def test_split(self):
+        s = 'hello world'
+        self.assertEqual(s.split(), ['hello', 'world'])
+        # check that s.split fails when the separator is not a string
+        with self.assertRaises(TypeError):
+            s.split(2)
+
+if __name__ == '__main__':
+    unittest.main(var)
